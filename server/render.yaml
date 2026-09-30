@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: merashehar-backend
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: N8N_CIVIC_WEBHOOK_URL
+        sync: false
+      - key: N8N_WEBHOOK_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        sync: false
+    autoDeploy: false
